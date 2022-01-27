@@ -1,4 +1,3 @@
-
 # %%
 import json
 import csv
@@ -31,6 +30,15 @@ print("--------------------")
 종가 = []
 전일비 = []
 거래량 = []
+
+시가총액 = soup.select('#_market_sum')[0].text
+시가총액순위 = soup.select('#_market_sum')[1].text
+상장주식수 = soup.select('#_market_sum')[2].text
+나머지값 = soup.select('tr>td')
+배당수익률 = 나머지값[5].text.strip()
+매출 = 나머지값[6].text
+비용 = 나머지값[7].text
+순익 = 나머지값[8].text
 
 for i in twoStep:
     날짜.append(i.select('td')[0].text)
@@ -69,7 +77,16 @@ with open('data.js', "r", encoding="UTF-8-sig") as f:
     while line:
         data += line
         line = f.readline()
-
+        
 final_data = f"var data ={data};"
+final_data = f"var 시가총액 ='{시가총액}';\n\
+var 시가총액순위 ='{시가총액순위}';\n\
+var 상장주식수 ='{상장주식수}';\n\
+var 배당수익률 ='{배당수익률}';\n\
+var 매출 ='{매출}'; \n\
+var 비용 ='{비용}'; \n\
+var 순익 ='{순익}'; \n\
+"+ final_data
+
 with open('data.js', "w", encoding="UTF-8-sig") as f_write:
     f_write.write(final_data)
