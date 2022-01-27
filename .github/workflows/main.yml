@@ -10,5 +10,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: file print
       run: ls
+    - name: python pakage check
+      run: pip list 
     - name: python execute
       run: python test.py
