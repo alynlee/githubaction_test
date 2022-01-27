@@ -7,11 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     #주석
-    - name: hello world!
-      run: echo Hello, world!
-    - name: directory print
-      run: ls -al
-    - name: python version print 
-      run: python -V
+    - uses: actions/checkout@v2
     - name: python execute 
       run: python test.py
