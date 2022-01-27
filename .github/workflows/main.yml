@@ -9,8 +9,12 @@ jobs:
     #주석
     - uses: actions/checkout@v2
     - name: file print
-      run: ls
+      run: ls -al
     - name: python pakage check
-      run: pip list 
+      run: pip list
+    - name: pip upgrade
+      run: python -m pip install --upgrade pip
+    - name: pakage install
+      run: pip install -r requirements.txt
     - name: python execute
       run: python test.py
