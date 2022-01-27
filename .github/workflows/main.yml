@@ -19,4 +19,4 @@ jobs:
     - name: pakage install
       run: pip install -r requirements.txt
     - name: python execute
-      run: python test.py
+      run: python crawing_basic.py
