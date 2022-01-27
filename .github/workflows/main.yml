@@ -8,5 +8,7 @@ jobs:
     steps:
     #주석
     - uses: actions/checkout@v2
-    - name: python execute 
+    - name: file print
+      run: ls
+    - name: python execute
       run: python test.py
