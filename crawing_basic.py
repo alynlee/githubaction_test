@@ -2,7 +2,7 @@
 # %%
 import json
 import csv
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import requests
 from bs4 import BeautifulSoup
 
@@ -40,10 +40,10 @@ for i in twoStep:
 
 print(날짜, 종가, 전일비, 거래량)
 
-# %%
-plt.plot(날짜, 종가)
-plt.xticks(rotation=-45)
-plt.show()
+# # %%
+# plt.plot(날짜, 종가)
+# plt.xticks(rotation=-45)
+# plt.show()
 
 
 # %%
@@ -59,7 +59,6 @@ for i in range(len(날짜)):
 print(I)
 
 # %%
-
 with open('data.js', "w", encoding="UTF-8-sig") as f_write:
     json.dump(I, f_write, ensure_ascii=False, indent=4)
 
@@ -74,6 +73,3 @@ with open('data.js', "r", encoding="UTF-8-sig") as f:
 final_data = f"var data ={data};"
 with open('data.js', "w", encoding="UTF-8-sig") as f_write:
     f_write.write(final_data)
-
-
-# %%
